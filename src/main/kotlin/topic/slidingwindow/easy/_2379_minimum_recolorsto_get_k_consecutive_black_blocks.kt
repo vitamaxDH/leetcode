@@ -1,4 +1,4 @@
-package easy
+package topic.slidingwindow.easy
 
 import kotlin.math.min
 

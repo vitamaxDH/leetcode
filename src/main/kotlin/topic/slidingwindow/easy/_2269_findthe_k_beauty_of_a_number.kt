@@ -1,4 +1,4 @@
-package easy
+package topic.slidingwindow.easy
 
 class _2269_findthe_k_beauty_of_a_number {
     fun divisorSubstrings(num: Int, k: Int): Int {
