@@ -2,6 +2,9 @@ package topic.slidingwindow.easy
 
 class _219_contains_duplicate_ii {
     fun containsNearbyDuplicate(nums: IntArray, k: Int): Boolean {
+        // Solution hint
+        // Duplication -> Set
+        // Nearby -> Sliding window.
         val window = HashSet<Int>()
         var l = 0
         for (r in nums.indices) {
