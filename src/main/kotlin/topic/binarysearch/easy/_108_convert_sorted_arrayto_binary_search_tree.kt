@@ -15,5 +15,4 @@ class _108_convert_sorted_arrayto_binary_search_tree {
         }
         return build(0, nums.lastIndex)
     }
-
 }
