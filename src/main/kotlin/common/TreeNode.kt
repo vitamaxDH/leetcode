@@ -36,26 +36,26 @@ class TreeNode(var `val`: Int) {
         }
     }
 
-}
-fun printTree(root: TreeNode?) {
-    fun maxDepth(node: TreeNode?): Int = node?.let { 1 + maxOf(maxDepth(it.left), maxDepth(it.right)) } ?: 0
+    fun printTree() {
+        fun maxDepth(node: TreeNode?): Int = node?.let { 1 + maxOf(maxDepth(it.left), maxDepth(it.right)) } ?: 0
 
-    val depth = maxDepth(root)
-    val maxWidth = (1 shl depth) - 1
+        val depth = maxDepth(this)
+        val maxWidth = (1 shl depth) - 1
 
-    val levels = Array(depth) { arrayOfNulls<String>(maxWidth) }
-    fillLevels(levels, root, 0, 0, maxWidth)
+        val levels = Array(depth) { arrayOfNulls<String>(maxWidth) }
+        fillLevels(levels, this, 0, 0, maxWidth)
 
-    for (level in levels) {
-        println(level.joinToString("") { it ?: " ".repeat(maxWidth / level.size) })
+        for (level in levels) {
+            println(level.joinToString("") { it ?: " ".repeat(maxWidth / level.size) })
+        }
     }
-}
 
-fun fillLevels(levels: Array<Array<String?>>, node: TreeNode?, depth: Int, left: Int, right: Int) {
-    if (node == null) return
-    val mid = left + (right - left) / 2
-    levels[depth][mid] = node.`val`.toString()
+    fun fillLevels(levels: Array<Array<String?>>, node: TreeNode?, depth: Int, left: Int, right: Int) {
+        if (node == null) return
+        val mid = left + (right - left) / 2
+        levels[depth][mid] = node.`val`.toString()
 
-    fillLevels(levels, node.left, depth + 1, left, mid)
-    fillLevels(levels, node.right, depth + 1, mid + 1, right)
+        fillLevels(levels, node.left, depth + 1, left, mid)
+        fillLevels(levels, node.right, depth + 1, mid + 1, right)
+    }
 }

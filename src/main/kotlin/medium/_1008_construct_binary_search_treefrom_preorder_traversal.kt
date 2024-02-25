@@ -1,7 +1,6 @@
 package medium
 
 import common.TreeNode
-import common.printTree
 
 /**
  * 1. When creating a new node, it should start from the root node
@@ -29,6 +28,6 @@ class _1008_construct_binary_search_treefrom_preorder_traversal {
 
 fun main() {
     with(_1008_construct_binary_search_treefrom_preorder_traversal()) {
-        printTree(bstFromPreorder(intArrayOf(8,5,1,7,10,12)))
+        bstFromPreorder(intArrayOf(8,5,1,7,10,12))?.printTree()
     }
 }

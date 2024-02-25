@@ -1,7 +1,6 @@
 package medium
 
 import common.TreeNode
-import common.printTree
 
 class _654_maximum_binary_tree {
     fun constructMaximumBinaryTree(nums: IntArray): TreeNode? {
@@ -22,7 +21,7 @@ class _654_maximum_binary_tree {
 
 fun main() {
     with(_654_maximum_binary_tree()) {
-        printTree(constructMaximumBinaryTree(intArrayOf(3,2,1,6,0,5)))
-        printTree(constructMaximumBinaryTree(intArrayOf(3,2,1)))
+        constructMaximumBinaryTree(intArrayOf(3,2,1,6,0,5))?.printTree()
+        constructMaximumBinaryTree(intArrayOf(3,2,1))?.printTree()
     }
 }
