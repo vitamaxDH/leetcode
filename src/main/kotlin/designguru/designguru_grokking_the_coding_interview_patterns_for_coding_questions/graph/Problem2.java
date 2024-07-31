@@ -1,4 +1,4 @@
-package designguru.graph;
+package designguru.designguru_grokking_the_coding_interview_patterns_for_coding_questions.graph;
 
 import java.util.ArrayList;
 import java.util.Arrays;
