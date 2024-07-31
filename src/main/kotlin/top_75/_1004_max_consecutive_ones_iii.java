@@ -1,7 +1,5 @@
 package top_75;
 
-import java.util.Arrays;
-
 public class _1004_max_consecutive_ones_iii {
     public int longestOnes(int[] nums, int k) {
         int l = 0;

@@ -1,5 +1,6 @@
 package top_150;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -76,5 +77,35 @@ class TreeNode {
         }
 
         return root;
+    }
+
+    public void printTree() {
+        int depth = maxDepth(this);
+        int maxWidth = (1 << depth) - 1;
+
+        String[][] levels = new String[depth][maxWidth];
+        for (String[] row : levels) {
+            Arrays.fill(row, " ");
+        }
+
+        fillLevels(levels, this, 0, 0, maxWidth - 1);
+
+        for (String[] level : levels) {
+            System.out.println(String.join("", level));
+        }
+    }
+
+    private void fillLevels(String[][] levels, TreeNode node, int depth, int left, int right) {
+        if (node == null) return;
+        int mid = left + (right - left) / 2;
+        levels[depth][mid] = Integer.toString(node.val);
+
+        fillLevels(levels, node.left, depth + 1, left, mid - 1);
+        fillLevels(levels, node.right, depth + 1, mid + 1, right);
+    }
+
+    private int maxDepth(TreeNode node) {
+        if (node == null) return 0;
+        return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
     }
 }

@@ -1,19 +1,8 @@
-package top_75;
+package common2;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
-
-public class _104_maximum_depthof_binary_tree {
-    public int maxDepth(TreeNode root) {
-        if (root == null) return 0;
-        
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
-
-        return Math.max(left, right) + 1;
-    }
-}
 
 class TreeNode {
     int val;
@@ -64,42 +53,36 @@ class TreeNode {
         return root;
     }
 
-    public static TreeNode findByValue(TreeNode node, int value) {
-        if (node == null) return null;
-        if (node.val == value) return node;
-        TreeNode left = findByValue(node.left, value);
-        TreeNode right = findByValue(node.right, value);
-        return left == null ? right : left;
-    }
-
-    public void printTree() {
+    // Method to print the tree structure
+    void printTree() {
         int depth = maxDepth(this);
         int maxWidth = (1 << depth) - 1;
 
         String[][] levels = new String[depth][maxWidth];
-        for (String[] row : levels) {
-            Arrays.fill(row, " ");
+        for (String[] level : levels) {
+            Arrays.fill(level, " ");
         }
 
-        fillLevels(levels, this, 0, 0, maxWidth - 1);
+        fillLevels(levels, this, 0, 0, maxWidth);
 
         for (String[] level : levels) {
             System.out.println(String.join("", level));
         }
     }
 
+    // Helper method to calculate the maximum depth of the tree
+    private int maxDepth(TreeNode node) {
+        return node == null ? 0 : 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+    }
+
+    // Recursive function to fill levels of the tree
     private void fillLevels(String[][] levels, TreeNode node, int depth, int left, int right) {
         if (node == null) return;
         int mid = left + (right - left) / 2;
-        levels[depth][mid] = Integer.toString(node.val);
+        levels[depth][mid] = String.valueOf(node.val);
 
-        fillLevels(levels, node.left, depth + 1, left, mid - 1);
+        fillLevels(levels, node.left, depth + 1, left, mid);
         fillLevels(levels, node.right, depth + 1, mid + 1, right);
-    }
-
-    private int maxDepth(TreeNode node) {
-        if (node == null) return 0;
-        return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
     }
 
 }
