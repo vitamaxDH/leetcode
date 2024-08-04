@@ -1,4 +1,4 @@
-package designguru.designguru_grokking_the_coding_interview_patterns_for_coding_questions.two_pointers;
+package designguru.designguru_grokking_the_coding_interview_patterns_for_coding_questions.two_pointers.easy;
 
 public class PairWithTargetSum {
     public static int[] search(int[] arr, int targetSum) {
