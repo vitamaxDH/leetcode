@@ -2,14 +2,22 @@ package designguru.designguru_grokking_the_coding_interview_patterns_for_coding_
 
 public class FindTheMissingNumber {
     public static int findMissingNumber(int[] nums) {
-        boolean[] checks = new boolean[nums.length + 1];
-        for (int num: nums) {
-            checks[num] = true;
+        int i = 0;
+        while (i < nums.length) {
+            int num = nums[i];
+            if (num < nums.length && num != nums[num]) {
+                int temp = nums[num];
+                nums[num] = nums[i];
+                nums[i] = temp;
+            } else {
+                i++;
+            }
         }
-        for (int i = 0; i < checks.length; i++) {
-            if (!checks[i]) return i;
+
+        for (i = 0; i < nums.length; i++) {
+            if (nums[i] != i) return i;
         }
-        return -1;
+        return nums.length;
     }
 
     public static void main(String[] args) {
