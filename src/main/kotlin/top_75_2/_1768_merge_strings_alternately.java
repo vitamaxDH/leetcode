@@ -1,6 +1,6 @@
-package top_75_2._1768;
+package top_75_2;
 
-public class _merge_strings_alternately {
+public class _1768_merge_strings_alternately {
 
     public static String mergeAlternately(String word1, String word2) {
         StringBuilder sb = new StringBuilder();
