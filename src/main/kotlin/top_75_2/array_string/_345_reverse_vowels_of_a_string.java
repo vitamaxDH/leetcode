@@ -1,4 +1,4 @@
-package top_75_2;
+package top_75_2.array_string;
 
 public class _345_reverse_vowels_of_a_string {
     public String reverseVowels(String s) {

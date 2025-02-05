@@ -1,4 +1,4 @@
-package top_75_2;
+package top_75_2.array_string;
 
 import java.util.Arrays;
 

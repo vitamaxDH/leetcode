@@ -1,4 +1,4 @@
-package top_75_2;
+package top_75_2.array_string;
 
 public class _1071_greatest_common_divisor_of_strings {
     public String gcdOfStrings(String str1, String str2) {
