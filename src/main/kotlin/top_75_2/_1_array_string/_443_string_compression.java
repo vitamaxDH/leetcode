@@ -1,4 +1,4 @@
-package top_75_2.array_string;
+package top_75_2._1_array_string;
 
 public class _443_string_compression {
     public int compress(char[] chars) {

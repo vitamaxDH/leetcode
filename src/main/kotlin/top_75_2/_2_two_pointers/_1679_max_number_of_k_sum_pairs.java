@@ -1,4 +1,4 @@
-package top_75_2.two_pointers;
+package top_75_2._2_two_pointers;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package top_75_2.two_pointers;
+package top_75_2._2_two_pointers;
 
 public class _392_is_subsequence {
     public boolean isSubsequence(String s, String t) {

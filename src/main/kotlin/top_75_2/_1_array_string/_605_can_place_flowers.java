@@ -1,4 +1,4 @@
-package top_75_2.array_string;
+package top_75_2._1_array_string;
 
 public class _605_can_place_flowers {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {

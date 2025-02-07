@@ -1,4 +1,4 @@
-package top_75_2.array_string;
+package top_75_2._1_array_string;
 
 import java.util.ArrayList;
 import java.util.List;
