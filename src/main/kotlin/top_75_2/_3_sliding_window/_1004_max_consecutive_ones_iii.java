@@ -6,18 +6,17 @@ public class _1004_max_consecutive_ones_iii {
     public int longestOnes(int[] nums, int k) {
         int l = 0;
         int max = 0;
-        int zc = 0;
+        int zeroCount = 0;
         for (int r = 0; r < nums.length; r++) {
             if (nums[r] == 0) {
-                zc++;
+                zeroCount++;
             }
-            if (zc > k) {
+            if (zeroCount > k) {
                 if (nums[l] == 0) {
-                    zc--;
+                    zeroCount--;
                 }
                 l++;
             }
-
             max = Math.max(max, r - l + 1);
         }
         return max;
@@ -27,13 +26,8 @@ public class _1004_max_consecutive_ones_iii {
         _1004_max_consecutive_ones_iii test = new _1004_max_consecutive_ones_iii();
         System.out.println(test.longestOnes(new int[]{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0}, 2));
         System.out.println(test.longestOnes(new int[]{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1}, 3));
-        System.out.println(test.longestOnes(new int[]{1,1,1,0,1,0,0}, 1));
+        System.out.println(test.longestOnes(new int[]{1, 1, 1, 0, 1, 0, 0}, 1));
     }
-
-
-
-
-
 
 
 //    public int longestOnes(int[] nums, int k) {
