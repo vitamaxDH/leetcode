@@ -1,12 +1,11 @@
 package top_75_2._6_stack;
 
-import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.Deque;
+import java.util.Stack;
 
 public class _735_asteroid_collision {
     public int[] asteroidCollision(int[] asteroids) {
-        Deque<Integer> movingAsteroids = new ArrayDeque<>();
+        Stack<Integer> movingAsteroids = new Stack<>();
         // find where they conflict
         //  then remove until either side has bigger
         //  if lastOne and the current one has same sig, just add and move to the next.
@@ -15,26 +14,26 @@ public class _735_asteroid_collision {
         moving:
         for (int asteroid : asteroids) {
             if (movingAsteroids.isEmpty()) {
-                movingAsteroids.addLast(asteroid);
+                movingAsteroids.push(asteroid);
                 continue;
             }
             if (asteroid > 0) {
-                movingAsteroids.addLast(asteroid);
+                movingAsteroids.push(asteroid);
             } else {
-                if (movingAsteroids.peekLast() < 0) {
-                    movingAsteroids.addLast(asteroid);
+                if (movingAsteroids.peek() < 0) {
+                    movingAsteroids.push(asteroid);
                 } else {
                     int negAbs = Math.abs(asteroid);
-                    while (!movingAsteroids.isEmpty() && movingAsteroids.peekLast() <= negAbs) {
-                        int lastPos = movingAsteroids.pollLast();
+                    while (!movingAsteroids.isEmpty() && movingAsteroids.peek() <= negAbs) {
+                        int lastPos = movingAsteroids.pop();
                         if (lastPos == negAbs) {
                             continue moving;
-                        } else if (!movingAsteroids.isEmpty() && movingAsteroids.peekLast() < 0) {
+                        } else if (!movingAsteroids.isEmpty() && movingAsteroids.peek() < 0) {
                             break;
                         }
                     }
-                    if (movingAsteroids.isEmpty() || movingAsteroids.peekLast() < 0) {
-                        movingAsteroids.addLast(asteroid);
+                    if (movingAsteroids.isEmpty() || movingAsteroids.peek() < 0) {
+                        movingAsteroids.push(asteroid);
                     }
                 }
             }
