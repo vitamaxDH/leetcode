@@ -1,5 +1,10 @@
 package designguru;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
+
 public class ListNode {
     public int val = 0;
     public ListNode next;
@@ -31,14 +36,13 @@ public class ListNode {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        List<String> list = new ArrayList<>();
         ListNode current = this;
         while (current != null) {
-            sb.append(current.val).append(" -> ");
+            list.add(String.valueOf(current.val));
             current = current.next;
         }
-        sb.append("null");
-        return sb.toString();
+        return String.join(" -> ", list);
     }
 
 }
