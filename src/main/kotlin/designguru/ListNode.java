@@ -28,6 +28,19 @@ public class ListNode {
         }
         System.out.println("null");
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        ListNode current = this;
+        while (current != null) {
+            sb.append(current.val).append(" -> ");
+            current = current.next;
+        }
+        sb.append("null");
+        return sb.toString();
+    }
+
 }
 
 
