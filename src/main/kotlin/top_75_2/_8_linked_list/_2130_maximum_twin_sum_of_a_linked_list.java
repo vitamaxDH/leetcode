@@ -8,16 +8,17 @@ public class _2130_maximum_twin_sum_of_a_linked_list {
         ListNode slow = head;
         ListNode fast = head;
         ListNode prev = null;
+        ListNode next;
 
         // 한 번의 순회로 앞쪽 절반을 역전
         while (fast != null && fast.next != null) {
-            ListNode nextSlow = slow.next; // slow의 다음 노드 임시 저장
+            next = slow.next; // slow의 다음 노드 임시 저장
             fast = fast.next.next;         // fast는 두 칸씩 이동
 
             // 현재 slow 노드를 역전 작업
             slow.next = prev;
             prev = slow;
-            slow = nextSlow;
+            slow = next;
         }
 
         // 역전된 앞쪽 리스트의 꼬리(원래의 head)가 이제 마지막 노드가 됨.
@@ -37,6 +38,6 @@ public class _2130_maximum_twin_sum_of_a_linked_list {
     public static void main(String[] args) {
         var s = new _2130_maximum_twin_sum_of_a_linked_list();
         System.out.println(s.pairSum(ListNode.createList(5, 4, 2, 1)));
-        System.out.println(s.pairSum(ListNode.createList(4, 2, 2, 3)));
+//        System.out.println(s.pairSum(ListNode.createList(4, 2, 2, 3)));
     }
 }
