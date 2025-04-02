@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class TreeNode {
-    int val;
+    public int val;
     public TreeNode left;
     public TreeNode right;
 
