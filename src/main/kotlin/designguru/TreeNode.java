@@ -49,12 +49,17 @@ public class TreeNode {
         return root;
     }
 
-    public static TreeNode findByValue(TreeNode node, int value) {
-        if (node == null) return null;
-        if (node.val == value) return node;
-        TreeNode left = findByValue(node.left, value);
-        TreeNode right = findByValue(node.right, value);
-        return left == null ? right : left;
+    public TreeNode findByValue(int value) {
+        if (this.val == value) return this;
+        TreeNode l = null;
+        TreeNode r = null;
+        if (left != null) {
+            l = left.findByValue(value);
+        }
+        if (right != null) {
+            r = right.findByValue(value);
+        }
+        return l == null ? r : l;
     }
 
     public void printTree() {
